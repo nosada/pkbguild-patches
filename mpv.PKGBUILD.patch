@@ -1,0 +1,23 @@
+diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
+index 05905bc57d7..3885dfdfa95 100644
+--- a/mpv/trunk/PKGBUILD
++++ b/mpv/trunk/PKGBUILD
+@@ -15,7 +15,7 @@ url='https://mpv.io/'
+ depends=(
+   'ffmpeg' 'lcms2' 'libcdio-paranoia' 'libgl' 'libxss'
+   'libxinerama' 'libxv' 'libxkbcommon' 'libva' 'wayland' 'libcaca'
+-  'desktop-file-utils' 'hicolor-icon-theme' 'xdg-utils' 'lua52' 'libdvdnav'
++  'desktop-file-utils' 'hicolor-icon-theme' 'xdg-utils' 'luajit' 'libdvdnav'
+   'libxrandr' 'jack' 'rubberband' 'uchardet' 'libarchive'
+ )
+ makedepends=('mesa' 'python-docutils' 'ladspa')
+@@ -58,7 +58,8 @@ build() {
+     --enable-encoding \
+     --enable-libarchive \
+     --enable-libmpv-shared \
+-    --enable-zsh-comp
++    --enable-zsh-comp \
++    --lua=luajit
+ 
+   ./waf build
+ }

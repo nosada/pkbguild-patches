@@ -1,0 +1,23 @@
+diff --git a/trunk/PKGBUILD b/trunk/PKGBUILD
+index 2af339f..6135d8c 100644
+--- a/trunk/PKGBUILD
++++ b/trunk/PKGBUILD
+@@ -12,7 +12,7 @@ pkgdesc='Qt5 client for the music player daemon (MPD)'
+ arch=(i686 x86_64)
+ url='https://github.com/CDrummond/cantata'
+ license=(GPL)
+-depends=(qt5-svg libmtp libmusicbrainz5 mpg123 vlc taglib-extras media-player-info libcdio-paranoia udisks2)
++depends=(qt5-svg libmtp libmusicbrainz5 mpg123 taglib-extras media-player-info libcdio-paranoia udisks2)
+ optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'ffmpeg: ReplayGain support')
+ makedepends=(cmake qt5-tools qt5-multimedia ffmpeg)
+ source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/$pkgname-$pkgver.tar.bz2")
+@@ -27,7 +27,8 @@ build() {
+   cmake ../$pkgname-$pkgver \
+     -DCMAKE_INSTALL_PREFIX=/usr \
+     -DCMAKE_BUILD_TYPE=Release \
+-    -DENABLE_TOUCH_SUPPORT=ON
++    -DENABLE_TOUCH_SUPPORT=ON \
++    -DENABLE_LIBVLC=OFF
+   make
+ }
+ 

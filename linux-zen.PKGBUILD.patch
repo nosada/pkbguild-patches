@@ -1,0 +1,22 @@
+diff --git a/linux-zen/trunk/PKGBUILD b/linux-zen/trunk/PKGBUILD
+index 63736e1470f..31770af73d4 100644
+--- a/linux-zen/trunk/PKGBUILD
++++ b/linux-zen/trunk/PKGBUILD
+@@ -58,7 +58,7 @@ prepare() {
+   # add zen patch
+   patch -p1 -i ../${_zenpatch}
+ 
+-  cp -Tf ../config .config
++  zcat /proc/config.gz > .config
+ 
+   if [ "${_kernelname}" != "" ]; then
+     sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
+@@ -77,7 +77,7 @@ prepare() {
+   # load configuration
+   # Configure the kernel. Replace the line below with one of your choice.
+   #make menuconfig # CLI menu for configuration
+-  #make nconfig # new CLI menu for configuration
++  make nconfig # new CLI menu for configuration
+   #make xconfig # X-based configuration
+   #make oldconfig # using old config from previous kernel version
+   # ... or manually edit .config
