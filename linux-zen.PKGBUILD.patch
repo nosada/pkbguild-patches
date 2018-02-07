@@ -1,17 +1,16 @@
 diff --git a/linux-zen/trunk/PKGBUILD b/linux-zen/trunk/PKGBUILD
-index 63736e1470f..31770af73d4 100644
+index 0e25a5fcdb7..d2eff1d0baf 100644
 --- a/linux-zen/trunk/PKGBUILD
 +++ b/linux-zen/trunk/PKGBUILD
-@@ -58,7 +58,7 @@ prepare() {
-   # add zen patch
-   patch -p1 -i ../${_zenpatch}
+@@ -54,6 +54,7 @@ prepare() {
+   # add latest fixes from stable queue, if needed
+   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
  
--  cp -Tf ../config .config
-+  zcat /proc/config.gz > .config
- 
-   if [ "${_kernelname}" != "" ]; then
-     sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
-@@ -77,7 +77,7 @@ prepare() {
++  zcat /proc/config.gz > ../config
+   cat ../config - >.config <<END
+ CONFIG_LOCALVERSION="${_kernelname}"
+ CONFIG_LOCALVERSION_AUTO=n
+@@ -71,7 +72,7 @@ END
    # load configuration
    # Configure the kernel. Replace the line below with one of your choice.
    #make menuconfig # CLI menu for configuration
