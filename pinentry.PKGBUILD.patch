@@ -1,8 +1,8 @@
 diff --git a/pinentry/trunk/PKGBUILD b/pinentry/trunk/PKGBUILD
-index 0007472905a..b30d84b2a58 100644
+index 0007472905a..d5ec9156483 100644
 --- a/pinentry/trunk/PKGBUILD
 +++ b/pinentry/trunk/PKGBUILD
-@@ -10,11 +10,9 @@ url='http://gnupg.org/related_software/pinentry/'
+@@ -10,17 +10,24 @@ url='http://gnupg.org/related_software/pinentry/'
  arch=('x86_64')
  license=('GPL')
  depends=('ncurses' 'libcap' 'libassuan' 'libsecret')
@@ -17,7 +17,23 @@ index 0007472905a..b30d84b2a58 100644
          'pinentry')
  sha256sums=('68076686fa724a290ea49cdf0d1c0c1500907d1b759a3bcbfbec0293e8f56570'
              'SKIP'
-@@ -28,11 +26,9 @@ build() {
+-            '95f298d20fce379ca6ac696b269ae4d276372e07c3e90e2d473dd8d14d5b682d')
++            'SKIP')
+ validpgpkeys=('D8692123C4065DEA5E0F3AB5249B39D24F25E3B6')
+ 
++prepare() {
++	cd "${srcdir}/${pkgname}-${pkgver}"
++	cat << EOS > ../pinentry
++#!/bin/bash
++test -e /usr/lib/libQt5Widgets.so.5 && exec /usr/bin/pinentry-qt "\$@"
++exec /usr/bin/pinentry-curses "\$@"
++EOS
++}
++
+ build() {
+ 	cd "${srcdir}/${pkgname}-${pkgver}"
+ 	./configure \
+@@ -28,11 +35,9 @@ build() {
  		--enable-pinentry-tty \
  		--enable-pinentry-curses \
  		--enable-fallback-curses \
