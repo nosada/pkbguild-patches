@@ -1,5 +1,5 @@
 diff --git a/cantata/trunk/PKGBUILD b/cantata/trunk/PKGBUILD
-index 7c2b3f73703..bd814971250 100644
+index 0abef7fcec0..b1bb2b64109 100644
 --- a/cantata/trunk/PKGBUILD
 +++ b/cantata/trunk/PKGBUILD
 @@ -12,7 +12,7 @@ pkgdesc='Qt5 client for the music player daemon (MPD)'
@@ -8,10 +8,10 @@ index 7c2b3f73703..bd814971250 100644
  license=(GPL)
 -depends=(libmtp libmusicbrainz5 mpg123 vlc taglib-extras media-player-info libcdio-paranoia udisks2)
 +depends=(libmtp libmusicbrainz5 mpg123 taglib-extras media-player-info libcdio-paranoia udisks2)
- optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'ffmpeg: ReplayGain support' 'libebur128: ReplayGain support')
+ optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'ffmpeg: ReplayGain support' 'libebur128: ReplayGain support'
+             'sshfs: remote devices support')
  makedepends=(cmake qt5-tools ffmpeg libebur128)
- source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/$pkgname-$pkgver.tar.bz2")
-@@ -26,7 +26,8 @@ build() {
+@@ -27,7 +27,8 @@ build() {
    cd build
    cmake ../$pkgname-$pkgver \
      -DCMAKE_INSTALL_PREFIX=/usr \
