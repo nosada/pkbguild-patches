@@ -1,8 +1,8 @@
 diff --git a/pinentry/trunk/PKGBUILD b/pinentry/trunk/PKGBUILD
-index 0007472905a..d5ec9156483 100644
+index 1806aaa3908..4ed2629aafe 100644
 --- a/pinentry/trunk/PKGBUILD
 +++ b/pinentry/trunk/PKGBUILD
-@@ -10,17 +10,24 @@ url='http://gnupg.org/related_software/pinentry/'
+@@ -10,19 +10,26 @@ url='https://gnupg.org/related_software/pinentry/'
  arch=('x86_64')
  license=('GPL')
  depends=('ncurses' 'libcap' 'libassuan' 'libsecret')
@@ -10,20 +10,21 @@ index 0007472905a..d5ec9156483 100644
 -optdepends=('gtk2: gtk2 backend'
 -            'qt5-base: qt backend'
 -            'gcr: gnome3 backend')
--source=("ftp://ftp.gnupg.org/gcrypt/${pkgname}/${pkgname}-${pkgver}.tar.bz2"{,.sig}
-+makedepends=('qt5-base')
++makedepends=(qt5-base)
 +optdepends=('qt5-base: qt backend')
-+source=("https://www.gnupg.org/ftp/gcrypt/${pkgname}/${pkgname}-${pkgver}.tar.bz2"{,.sig}
+ validpgpkeys=('D8692123C4065DEA5E0F3AB5249B39D24F25E3B6')
+ source=("https://www.gnupg.org/ftp/gcrypt/${pkgname}/${pkgname}-${pkgver}.tar.bz2"{,.sig}
          'pinentry')
  sha256sums=('68076686fa724a290ea49cdf0d1c0c1500907d1b759a3bcbfbec0293e8f56570'
              'SKIP'
--            '95f298d20fce379ca6ac696b269ae4d276372e07c3e90e2d473dd8d14d5b682d')
+-            '4f51d67c8cf92f2bb535e07d2ba7dc8972535dae077c678102a34fb87f3b3a9c')
 +            'SKIP')
- validpgpkeys=('D8692123C4065DEA5E0F3AB5249B39D24F25E3B6')
+ 
+ backup=('usr/bin/pinentry')
  
 +prepare() {
-+	cd "${srcdir}/${pkgname}-${pkgver}"
-+	cat << EOS > ../pinentry
++       cd "${srcdir}/${pkgname}-${pkgver}"
++       cat << EOS > ../pinentry
 +#!/bin/bash
 +test -e /usr/lib/libQt5Widgets.so.5 && exec /usr/bin/pinentry-qt "\$@"
 +exec /usr/bin/pinentry-curses "\$@"
@@ -33,7 +34,7 @@ index 0007472905a..d5ec9156483 100644
  build() {
  	cd "${srcdir}/${pkgname}-${pkgver}"
  	./configure \
-@@ -28,11 +35,9 @@ build() {
+@@ -30,11 +37,9 @@ build() {
  		--enable-pinentry-tty \
  		--enable-pinentry-curses \
  		--enable-fallback-curses \
@@ -42,7 +43,7 @@ index 0007472905a..d5ec9156483 100644
 -		--enable-pinentry-gnome3 \
  		--enable-pinentry-qt \
  		--enable-libsecret \
-+		--enable-pinentry-qt5
++		--enable-pinentry-qt5 \
  
  	make
  }
