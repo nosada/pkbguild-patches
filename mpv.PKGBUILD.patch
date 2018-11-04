@@ -1,8 +1,8 @@
 diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
-index 59060e5311c..21469ce107c 100644
+index 9d9beec664a..e0d55899c3d 100644
 --- a/mpv/trunk/PKGBUILD
 +++ b/mpv/trunk/PKGBUILD
-@@ -16,7 +16,7 @@ license=('GPL3')
+@@ -15,7 +15,7 @@ license=('GPL3')
  url='https://mpv.io/'
  depends=('desktop-file-utils' 'ffmpeg' 'hicolor-icon-theme' 'jack' 'lcms2'
           'libarchive' 'libcaca' 'libcdio-paranoia' 'libdvdnav' 'libgl' 'libva'
@@ -11,12 +11,11 @@ index 59060e5311c..21469ce107c 100644
           'rubberband' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland'
           'xdg-utils')
  makedepends=('mesa' 'python-docutils' 'ladspa' 'wayland-protocols'
-@@ -47,7 +47,8 @@ build() {
+@@ -45,7 +45,7 @@ build() {
      --enable-libmpv-shared \
      --enable-libsmbclient \
      --enable-tv \
 -    --enable-zsh-comp
-+    --enable-zsh-comp \
 +    --lua=luajit
  
    ./waf build
