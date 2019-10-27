@@ -1,5 +1,5 @@
 diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
-index 9d9beec664a..e0d55899c3d 100644
+index 36e5a628915..5f34b159551 100644
 --- a/mpv/trunk/PKGBUILD
 +++ b/mpv/trunk/PKGBUILD
 @@ -15,7 +15,7 @@ license=('GPL3')
@@ -9,13 +9,14 @@ index 9d9beec664a..e0d55899c3d 100644
 -         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'lua52'
 +         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'luajit'
           'rubberband' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland'
-          'xdg-utils')
+          'xdg-utils' 'shaderc' 'mujs' 'libplacebo')
  makedepends=('mesa' 'python-docutils' 'ladspa' 'wayland-protocols'
-@@ -45,7 +45,7 @@ build() {
+@@ -43,7 +43,8 @@ build() {
+     --enable-dvdnav \
+     --enable-libarchive \
      --enable-libmpv-shared \
-     --enable-libsmbclient \
-     --enable-tv \
--    --enable-zsh-comp
+-    --enable-libsmbclient
++    --enable-libsmbclient \
 +    --lua=luajit
  
    ./waf build
