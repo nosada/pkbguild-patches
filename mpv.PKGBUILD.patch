@@ -1,17 +1,17 @@
 diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
-index e5dbf8f8da3..4d8cf4c7e93 100644
+index 3f3474d136c..1a70c9b301e 100644
 --- a/mpv/trunk/PKGBUILD
 +++ b/mpv/trunk/PKGBUILD
-@@ -15,7 +15,7 @@ license=('GPL3')
+@@ -14,7 +14,7 @@ license=('GPL3')
  url='https://mpv.io/'
- depends=('desktop-file-utils' 'ffmpeg' 'hicolor-icon-theme' 'jack' 'lcms2'
+ depends=('desktop-file-utils' 'ffmpeg' 'hicolor-icon-theme' 'libjack.so' 'lcms2'
           'libarchive' 'libcaca' 'libcdio-paranoia' 'libdvdnav' 'libgl' 'libva'
 -         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'lua52'
 +         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'luajit'
-          'rubberband' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland'
+          'librubberband.so' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland'
           'xdg-utils' 'shaderc' 'mujs' 'libplacebo' 'libplacebo.so')
  makedepends=('mesa' 'python-docutils' 'ladspa' 'wayland-protocols'
-@@ -44,7 +44,8 @@ build() {
+@@ -36,7 +36,8 @@ build() {
      --enable-libarchive \
      --enable-libmpv-shared \
      --enable-libsmbclient \
@@ -19,5 +19,5 @@ index e5dbf8f8da3..4d8cf4c7e93 100644
 +    --disable-build-date \
 +    --lua=luajit
  
-   ./waf build
+   waf build
  }
