@@ -1,5 +1,5 @@
 diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
-index 4fbd60640e2..c48ab2357eb 100644
+index 046e1bf91f2..5b792ab7d41 100644
 --- a/mpv/trunk/PKGBUILD
 +++ b/mpv/trunk/PKGBUILD
 @@ -14,7 +14,7 @@ license=('GPL3')
@@ -9,12 +9,12 @@ index 4fbd60640e2..c48ab2357eb 100644
 -         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'lua52'
 +         'libxinerama' 'libxkbcommon' 'libxrandr' 'libxss' 'libxv' 'luajit'
           'librubberband.so' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland'
-          'xdg-utils' 'shaderc' 'mujs' 'libplacebo' 'libplacebo.so' 'sndio')
+          'xdg-utils' 'shaderc' 'mujs' 'libplacebo' 'libplacebo.so')
  makedepends=('mesa' 'python-docutils' 'ladspa' 'wayland-protocols'
-@@ -37,7 +37,8 @@ build() {
+@@ -36,7 +36,8 @@ build() {
+     --enable-libarchive \
      --enable-libmpv-shared \
      --enable-libsmbclient \
-     --enable-sndio \
 -    --disable-build-date
 +    --disable-build-date \
 +    --lua=luajit
