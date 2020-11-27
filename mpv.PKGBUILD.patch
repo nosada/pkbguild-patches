@@ -1,20 +1,20 @@
 diff --git a/mpv/trunk/PKGBUILD b/mpv/trunk/PKGBUILD
-index ddbb428b48fc..5cf155c3bf62 100644
+index 3047a6817188..e63428da5199 100644
 --- a/mpv/trunk/PKGBUILD
 +++ b/mpv/trunk/PKGBUILD
 @@ -21,7 +21,7 @@ depends=('alsa-lib' 'libasound.so' 'desktop-file-utils' 'ffmpeg' 'libavcodec.so'
-          'libjpeg-turbo' 'libjpeg.so' 'libplacebo' 'libplacebo.so' 'libpulse' 'libpulse.so'
+          'libjpeg' 'libjpeg.so' 'libplacebo' 'libplacebo.so' 'libpulse' 'libpulse.so'
           'libva' 'libva.so' 'libva-drm.so' 'libva-wayland.so' 'libva-x11.so' 'libvdpau' 'libx11'
           'libxext' 'libxinerama' 'libxkbcommon' 'libxkbcommon.so' 'libxrandr' 'libxss' 'libxss'
 -         'libxv' 'lua52' 'mesa' 'mujs' 'rubberband' 'librubberband.so' 'shaderc'
 +         'libxv' 'luajit' 'mesa' 'mujs' 'rubberband' 'librubberband.so' 'shaderc'
-          'libshaderc_shared.so' 'smbclient' 'uchardet' 'vulkan-icd-loader' 'wayland' 'xdg-utils'
+          'libshaderc_shared.so' 'uchardet' 'vulkan-icd-loader' 'wayland' 'xdg-utils'
           'zlib')
- makedepends=('git' 'mesa' 'python-docutils' 'ladspa' 'wayland-protocols'
-@@ -44,7 +44,8 @@ build() {
+ makedepends=('git' 'python-docutils' 'ladspa' 'wayland-protocols'
+@@ -43,7 +43,8 @@ build() {
+     --enable-dvdnav \
      --enable-libarchive \
      --enable-libmpv-shared \
-     --enable-libsmbclient \
 -    --disable-build-date
 +    --disable-build-date \
 +    --lua=luajit
